@@ -1,8 +1,8 @@
 <html>
     <head>
        <title>Form</title>
-       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+       <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
   {% load static %}
 <link rel="stylesheet" href="{% static 'login/css/my_style_sheet.css' %}" media="screen" title="no title"  charset="utf-8">
 
@@ -15,9 +15,10 @@
         <meta charset+"utf-8">
         {% load static %}
         <link rel="stylesheet" href="{% static 'login/css/my_style_sheet.css' %}" media="screen" title="no title"  charset="utf-8">
+        <link rel="stylesheet" href="{% static 'login/css/my_style_sheet_form.css' %}" media="screen" title="no title"  charset="utf-8">
 
         <title>Login and Registration</title>
-<div class="container">
+<!-- <div class="container"> -->
         {% if messages %}
           <ul class="messages">
             {% for message in messages %}
@@ -26,8 +27,10 @@
           </ul>
         {% endif %}
 
+
+        <div id="form1">
         <h3>Register:</h3>
-        <form action='/process/register' method='post'>
+        <form class="form-style" action='/process/register' method='post'>
                  {% csrf_token %}
             <div>
                 First Name: <input type='text' name='first_name'>
@@ -48,8 +51,12 @@
                 <input type='submit' value='Submit' class="btn btn-primary">
             </div>
         </form>
+      </div>
+
+      <div id="form2">
+
         <h3> Login: </h3>
-        <form action='/process/login' method='post'>
+        <form class="form-style" action='/process/login' method='post'>
                          {% csrf_token %}
             <div>
                 Email: <input type='email' name='email'>
